@@ -131,12 +131,12 @@ namespace Whetstone
         public override LocString DisplayDescription => Localizer.DoStr("Consume to repair modern/steel tools");
     }
 
-    [RequiresSkill(typeof(BasicEngineeringSkill), 0)]
+    [RequiresSkill(typeof(BasicEngineeringSkill), 1)]
     public class WoodWhetstoneRecipe : RecipeFamily
     {
         public static int InferRepairCostBase(RepairableItem item)
         {
-            return (int)Math.Ceiling(item.FullRepairAmount * 0.2);
+            return (int)Math.Ceiling(item.FullRepairAmount * 1.2);
         }
         public WoodWhetstoneRecipe()
         {
@@ -165,11 +165,11 @@ namespace Whetstone
             typeof(BasicEngineeringFocusedSpeedTalent),
             typeof(BasicEngineeringParallelSpeedTalent));
             Initialize(Localizer.DoStr("Wood Whetstone"), typeof(WoodWhetstoneRecipe));
-            CraftingComponent.AddRecipe(typeof(ToolBenchObject), this);
+            CraftingComponent.AddRecipe(typeof(CarpentryTableObject), this);
         }
     }
 
-    [RequiresSkill(typeof(BasicEngineeringSkill), 0)]
+    [RequiresSkill(typeof(BasicEngineeringSkill), 1)]
     public class StoneWhetstoneRecipe : RecipeFamily
     {
         public StoneWhetstoneRecipe()
@@ -199,7 +199,7 @@ namespace Whetstone
                 typeof(BasicEngineeringFocusedSpeedTalent),
                 typeof(BasicEngineeringParallelSpeedTalent));
             Initialize(Localizer.DoStr("Stone Whetstone"), typeof(StoneWhetstoneRecipe));
-            CraftingComponent.AddRecipe(typeof(ToolBenchObject), this);
+            CraftingComponent.AddRecipe(typeof(WainwrightTableObject), this);
         }
     }
 
